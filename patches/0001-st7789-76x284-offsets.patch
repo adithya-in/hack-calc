@@ -1,0 +1,59 @@
+Add ST7789 rotation offsets for the 2.25" 76x284 bar panel.
+
+The panel's 76x284 visible area sits inside the ST7789 240x320 GRAM.
+Portrait (rotations 0/2) needs colstart=82, rowstart=18; landscape
+(rotations 1/3) needs colstart=18, rowstart=82.
+
+Apply from the root of a TFT_eSPI checkout (tested on 2.5.43 / master):
+    patch -p1 < patches/0001-st7789-76x284-offsets.patch
+
+--- a/TFT_Drivers/ST7789_Rotation.h
++++ b/TFT_Drivers/ST7789_Rotation.h
+@@ -25,6 +25,11 @@
+         colstart = 35;
+         rowstart = 0;
+       }
++      else if(_init_width == 76) // 2.25" 76x284 ST7789P3 bar display
++      {
++        colstart = 82;
++        rowstart = 18;
++      }
+       else
+       {
+         colstart = 0;
+@@ -59,6 +64,11 @@
+         colstart = 0;
+         rowstart = 35;
+       }
++      else if(_init_width == 76) // 2.25" 76x284 ST7789P3 bar display
++      {
++        colstart = 18;
++        rowstart = 82;
++      }
+       else
+       {
+         colstart = 0;
+@@ -93,6 +103,11 @@
+         colstart = 35;
+         rowstart = 0;
+       }
++      else if(_init_width == 76) // 2.25" 76x284 ST7789P3 bar display
++      {
++        colstart = 82;
++        rowstart = 18;
++      }
+       else
+       {
+         colstart = 0;
+@@ -126,6 +141,11 @@
+         colstart = 0;
+         rowstart = 35;
+       }
++      else if(_init_width == 76) // 2.25" 76x284 ST7789P3 bar display
++      {
++        colstart = 18;
++        rowstart = 82;
++      }
+       else
+       {
+         colstart = 80;

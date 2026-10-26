@@ -1,0 +1,9 @@
+.DS_Store
+build/
+*.bin
+*.elf
+*.map
+*.hex
+*.dSYM/
+__pycache__/
+*.pyc
