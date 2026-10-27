@@ -380,6 +380,13 @@ img {
     padding-left: 24px;
 }
 
+.mode-card__display--custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--lcd-bg);
+}
+
 .lcd-row {
     opacity: 0.9;
 }

@@ -26,6 +26,7 @@
                 <li class="nav__item"><a href="#product" class="nav__link">Product</a></li>
                 <li class="nav__item"><a href="#features" class="nav__link">Features</a></li>
                 <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+                <li class="nav__item"><a href="#simulator" class="nav__link">Simulator</a></li>
                 <li class="nav__item"><a href="#build" class="nav__link">Build</a></li>
                 <li class="nav__item"><a href="https://github.com/adithya-in/hack-calc" class="nav__link" target="_blank" rel="noopener">GitHub</a></li>
                 <li class="nav__item nav__item--cta"><a href="#buy" class="nav__link nav__link--cta">Buy</a></li>
@@ -37,12 +38,12 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero__content">
-                <p class="hero__eyebrow">ESP32 + 76×284 ST7789</p>
+                <p class="hero__eyebrow">76×284 DISPLAY</p>
                 <h1 class="hero__title">It looks like a<br><em>scientific calculator.</em></h1>
-                <p class="hero__subtitle">A razor-thin tribute to the Casio FX-82MS. Same keys, same screen. Until you power it on.</p>
+                <p class="hero__subtitle">A razor-thin tribute to the Casio FX-82MS. Same keys, same screen. Load images and text files, display LaTeX, switch back to calculator with a button.</p>
                 <div class="hero__actions">
                     <a href="#buy" class="btn btn--primary">Buy now →</a>
-                    <a href="#product" class="btn btn--ghost">Learn more</a>
+                    <a href="/app/" class="btn btn--ghost">Try Simulator →</a>
                 </div>
             </div>
             <div class="hero__visual">
@@ -59,8 +60,8 @@
             <div class="product-intro__grid">
                 <div class="product-intro__text">
                     <p class="section__eyebrow">THE DEVICE</p>
-                    <h2 class="section__title">An <em>ESP32</em> calculator.</h2>
-                    <p class="section__desc">Hand-assembled with care. Powered by an ESP32 WROOM-32 and a 2.25" ST7789 bar TFT. Three modes cycle every 2 seconds, recreating the classic calculator experience with a modern twist.</p>
+                    <h2 class="section__title">A modern <em>calculator.</em></h2>
+                    <p class="section__desc">Hand-assembled with care. Three modes cycle every 2 seconds, recreating the classic calculator experience with a modern twist.</p>
                 </div>
                 <div class="product-intro__features">
                     <div class="feature-block">
@@ -88,7 +89,8 @@
         <div class="container">
             <div class="modes__header">
                 <p class="section__eyebrow">MODES</p>
-                <h2 class="section__title">Three modes. <em>One device.</em></h2>
+                <h2 class="section__title">Load images, text & <em>LaTeX.</em></h2>
+                <p class="section__desc">Upload images or text files. Content converts to display format. Switch back to calculator layout with a single button press.</p>
             </div>
             <div class="modes__slider">
                 <div class="mode-card mode-card--active">
@@ -99,18 +101,24 @@
                     </div>
                     <div class="mode-card__info">
                         <span class="mode-card__num">01</span>
-                        <h3>Casio LCD</h3>
-                        <p>Faithful dot-matrix rendering with annunciators and pixel grid.</p>
+                        <h3>Calculator Layout</h3>
+                        <p>Classic Casio FX-82MS display with dot-matrix rendering.</p>
                     </div>
                 </div>
                 <div class="mode-card">
-                    <div class="mode-card__display">
-                        <img src="assets/porsche_banner_284x76.png" alt="Porsche mode">
+                    <div class="mode-card__display mode-card__display--custom">
+                        <div class="custom-display">
+                            <div style="color: #bccfc4; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-align: center;">
+                                <div>IMAGE / TEXT</div>
+                                <div style="margin-top: 4px;">LOAD & DISPLAY</div>
+                                <div style="margin-top: 4px; opacity: 0.7;">LATEX RENDER</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="mode-card__info">
                         <span class="mode-card__num">02</span>
-                        <h3>Porsche Banner</h3>
-                        <p>Moody 911 Carrera 4S render, cropped for the ultra-wide display.</p>
+                        <h3>Custom Content</h3>
+                        <p>Load images or .txt files, display LaTeX equations and formatted text.</p>
                     </div>
                 </div>
                 <div class="mode-card">
@@ -182,20 +190,20 @@
                 <div class="build__parts">
                     <div class="parts-list">
                         <div class="parts-list__item">
-                            <span class="parts-list__label">MCU</span>
-                            <span class="parts-list__value">ESP32 WROOM-32</span>
-                        </div>
-                        <div class="parts-list__item">
                             <span class="parts-list__label">Display</span>
-                            <span class="parts-list__value">2.25" ST7789 76×284</span>
+                            <span class="parts-list__value">76×284</span>
                         </div>
                         <div class="parts-list__item">
                             <span class="parts-list__label">Interface</span>
-                            <span class="parts-list__value">SPI (27MHz)</span>
+                            <span class="parts-list__value">SPI</span>
                         </div>
                         <div class="parts-list__item">
                             <span class="parts-list__label">Backlight</span>
-                            <span class="parts-list__value">Active-low PWM</span>
+                            <span class="parts-list__value">PWM</span>
+                        </div>
+                        <div class="parts-list__item">
+                            <span class="parts-list__label">Storage</span>
+                            <span class="parts-list__value">Load images & text</span>
                         </div>
                     </div>
                 </div>
