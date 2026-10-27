@@ -123,8 +123,9 @@ body {
 .hero-sub {
     color: var(--muted);
     font-size: 17px;
-    max-width: 520px;
+    max-width: 500px;
     margin-bottom: 32px;
+    line-height: 1.75;
 }
 
 .hero-actions {
@@ -203,15 +204,14 @@ body {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 28px;
 }
 
 .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px;
-}
+    padding: 32px;
 
 .card .num {
     font-family: 'JetBrains Mono', monospace;
@@ -298,7 +298,7 @@ body {
 .steps {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 28px;
 }
 
 .step-shot {
