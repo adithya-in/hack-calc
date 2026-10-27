@@ -313,6 +313,10 @@ body {
     height: auto;
     display: block;
     border-bottom: 1px solid var(--border);
+    image-rendering: pixelated;
+    object-fit: contain;
+    background: var(--bg-alt);
+    max-height: 240px;
 }
 
 .step-shot__body { padding: 22px 24px; }
