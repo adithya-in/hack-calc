@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy topper.calc — Product page</title>
+    <meta name="description" content="Buy topper.calc. Looks like a scientific calculator, shows your images and notes on its wide screen, switch back to calculator with one button.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body id="top">
+    <header class="header">
+        <div class="container nav">
+            <a href="../index.html" class="brand">topper.calc</a>
+            <nav class="nav-links">
+                <a href="../index.html#how">How it works</a>
+                <a href="../index.html#material">Web App</a>
+                <a href="../index.html#specs">Details</a>
+                <a href="#buy" class="nav-cta">Buy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section product-page">
+            <div class="container product-grid">
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <img id="mainImage" src="view-1.png" alt="topper.calc device view 1">
+                    </div>
+                    <div class="gallery-thumbs">
+                        <button class="thumb active" data-src="view-1.png">
+                            <img src="view-1.png" alt="topper.calc view 1">
+                        </button>
+                        <button class="thumb" data-src="view-2.png">
+                            <img src="view-2.png" alt="topper.calc view 2">
+                        </button>
+                        <button class="thumb" data-src="view-3.png">
+                            <img src="view-3.png" alt="topper.calc view 3">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <p class="eyebrow">Pre-order</p>
+                    <h1 class="product-title">topper.calc</h1>
+                    <p class="product-price">₹6,499 <span class="price-note">incl. shipping</span></p>
+                    <p class="product-desc">
+                        Looks like a normal scientific calculator. Send images, notes, or formulas
+                        to its wide screen and read them easily. Press one button to switch back
+                        to the full calculator instantly.
+                    </p>
+                    <ul class="product-features">
+                        <li>Wide display for images & notes</li>
+                        <li>Normal calculator + toggle in one device</li>
+                        <li>Web app to load content easily</li>
+                        <li>Rechargeable over USB</li>
+                    </ul>
+                    <div class="buy-box" id="buy">
+                        <form>
+                          <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                            data-payment_button_id="pl_Tt31hGvZbFClhc"
+                            async>
+                          </script>
+                        </form>
+                        <p class="buy-note">Secure checkout · Ships across India</p>
+                    </div>
+                    <div class="back-link">
+                        <a href="../index.html">← Back to home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand">topper.calc</div>
+                <p class="footer-tag">Your notes, hidden in a calculator.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html#how">How it works</a>
+                <a href="../index.html#material">Web App</a>
+                <a href="../index.html#specs">Details</a>
+                <a href="#buy">Buy</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 topper.calc. All product names are trademarks of their respective owners.</p>
+        </div>
+    </footer>
+
+    <script>
+        const thumbs = document.querySelectorAll('.thumb');
+        const mainImage = document.getElementById('mainImage');
+        thumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                thumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                mainImage.src = btn.dataset.src;
+            });
+        });
+    </script>
+</body>
+</html>
