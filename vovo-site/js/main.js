@@ -1,1 +1,1 @@
-// basic interactions — nav stays minimal, no clutter needed
+// basic interactions - nav stays minimal, no clutter needed
