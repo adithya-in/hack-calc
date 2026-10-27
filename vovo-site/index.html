@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hack-calc — Casio FX-82MS style ESP32 display</title>
+    <meta name="description" content="A razor-thin tribute to the Casio FX-82MS, built around an ESP32 and a 2.25" 76×284 ST7789 bar TFT.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="#home">hack-calc</a>
+            </div>
+            <button class="nav__toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="#product" class="nav__link">Product</a></li>
+                <li class="nav__item"><a href="#features" class="nav__link">Features</a></li>
+                <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
+                <li class="nav__item"><a href="#build" class="nav__link">Build</a></li>
+                <li class="nav__item"><a href="https://github.com/adithya-in/hack-calc" class="nav__link" target="_blank" rel="noopener">GitHub</a></li>
+                <li class="nav__item nav__item--cta"><a href="#buy" class="nav__link nav__link--cta">Buy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <p class="hero__eyebrow">ESP32 + 76×284 ST7789</p>
+                <h1 class="hero__title">It looks like a<br><em>scientific calculator.</em></h1>
+                <p class="hero__subtitle">A razor-thin tribute to the Casio FX-82MS. Same keys, same screen. Until you power it on.</p>
+                <div class="hero__actions">
+                    <a href="#buy" class="btn btn--primary">Buy now →</a>
+                    <a href="#product" class="btn btn--ghost">Learn more</a>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="calculator-frame">
+                    <div class="calculator-frame__glow"></div>
+                    <img src="assets/porsche_banner_284x76.png" alt="hack-calc display" class="calculator-frame__display">
+                    <div class="calculator-frame__base"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product intro -->
+    <section id="product" class="product-intro">
+        <div class="container">
+            <div class="product-intro__grid">
+                <div class="product-intro__text">
+                    <p class="section__eyebrow">THE DEVICE</p>
+                    <h2 class="section__title">An <em>ESP32</em> calculator.</h2>
+                    <p class="section__desc">Hand-assembled with care. Powered by an ESP32 WROOM-32 and a 2.25" ST7789 bar TFT. Three modes cycle every 2 seconds, recreating the classic calculator experience with a modern twist.</p>
+                </div>
+                <div class="product-intro__features">
+                    <div class="feature-block">
+                        <span class="feature-block__num">I</span>
+                        <h3>On the back</h3>
+                        <p>A 2.25" 76×284 display with custom GRAM offsets for perfect alignment.</p>
+                    </div>
+                    <div class="feature-block">
+                        <span class="feature-block__num">II</span>
+                        <h3>On the outside</h3>
+                        <p>Classic calculator form factor. Dark LCD with authentic dot-matrix rendering.</p>
+                    </div>
+                    <div class="feature-block">
+                        <span class="feature-block__num">III</span>
+                        <h3>On the inside</h3>
+                        <p>Three modes: Casio LCD, Porsche banner, and pocket cheat sheet. Per-state backlight control.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modes showcase -->
+    <section id="gallery" class="modes">
+        <div class="container">
+            <div class="modes__header">
+                <p class="section__eyebrow">MODES</p>
+                <h2 class="section__title">Three modes. <em>One device.</em></h2>
+            </div>
+            <div class="modes__slider">
+                <div class="mode-card mode-card--active">
+                    <div class="mode-card__display mode-card__display--lcd">
+                        <div class="lcd-row">DEG M STO</div>
+                        <div class="lcd-row">sin(30)+12</div>
+                        <div class="lcd-row lcd-row--right">12.5</div>
+                    </div>
+                    <div class="mode-card__info">
+                        <span class="mode-card__num">01</span>
+                        <h3>Casio LCD</h3>
+                        <p>Faithful dot-matrix rendering with annunciators and pixel grid.</p>
+                    </div>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-card__display">
+                        <img src="assets/porsche_banner_284x76.png" alt="Porsche mode">
+                    </div>
+                    <div class="mode-card__info">
+                        <span class="mode-card__num">02</span>
+                        <h3>Porsche Banner</h3>
+                        <p>Moody 911 Carrera 4S render, cropped for the ultra-wide display.</p>
+                    </div>
+                </div>
+                <div class="mode-card">
+                    <div class="mode-card__display mode-card__display--cheat">
+                        <div>sin²+cos²=1   tan=sin/cos</div>
+                        <div>sin(A+B)=sinAcosB+cosAsinB</div>
+                        <div>cos(A+B)=cosAcosB-sinAsinB</div>
+                        <div>a/sinA=b/sinB=c/sinC</div>
+                    </div>
+                    <div class="mode-card__info">
+                        <span class="mode-card__num">03</span>
+                        <h3>Cheat Sheet</h3>
+                        <p>Pocket formulas for trigonometry and algebra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features__header">
+                <p class="section__eyebrow">FEATURES</p>
+                <h2 class="section__title">Built with <em>intent.</em></h2>
+            </div>
+            <div class="features__grid">
+                <div class="feature-item">
+                    <h3>Custom ST7789 Offsets</h3>
+                    <p>Patched rotation for 76×284 GRAM window. Every pixel lands exactly where it should.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Active-Low Backlight</h3>
+                    <p>PWM dimming with inverted duty cycle. Brightness tuned per mode for optimal readability.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Hand-Tuned Palette</h3>
+                    <p>Background #152228, text #bccfc4, subtle grid. Nails that authentic LCD glow.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>2-Second Cycle</h3>
+                    <p>Clean state machine. Casio → Porsche → Cheat sheet, repeat.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Raw-GRAM Diagnostics</h3>
+                    <p>Stripe test bypasses offsets for easy hardware debugging.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Fully Open Source</h3>
+                    <p>MIT licensed. Wiring, patch, image pipeline, and docs all included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build section -->
+    <section id="build" class="build">
+        <div class="container">
+            <div class="build__grid">
+                <div class="build__content">
+                    <p class="section__eyebrow">BUILD IT YOURSELF</p>
+                    <h2 class="section__title">DIY or <em>pre-assembled.</em></h2>
+                    <p class="section__desc">Source the parts, flash the firmware, and build your own. Or get a tested kit when available.</p>
+                    <div class="build__actions">
+                        <a href="https://github.com/adithya-in/hack-calc" class="btn btn--primary" target="_blank" rel="noopener">View build guide →</a>
+                        <a href="https://github.com/adithya-in/hack-calc#hardware" class="btn btn--ghost" target="_blank" rel="noopener">Parts list</a>
+                    </div>
+                </div>
+                <div class="build__parts">
+                    <div class="parts-list">
+                        <div class="parts-list__item">
+                            <span class="parts-list__label">MCU</span>
+                            <span class="parts-list__value">ESP32 WROOM-32</span>
+                        </div>
+                        <div class="parts-list__item">
+                            <span class="parts-list__label">Display</span>
+                            <span class="parts-list__value">2.25" ST7789 76×284</span>
+                        </div>
+                        <div class="parts-list__item">
+                            <span class="parts-list__label">Interface</span>
+                            <span class="parts-list__value">SPI (27MHz)</span>
+                        </div>
+                        <div class="parts-list__item">
+                            <span class="parts-list__label">Backlight</span>
+                            <span class="parts-list__value">Active-low PWM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy -->
+    <section id="buy" class="buy">
+        <div class="container">
+            <div class="buy__card">
+                <div class="buy__content">
+                    <p class="section__eyebrow">PURCHASE</p>
+                    <h2 class="section__title">Get hack-calc</h2>
+                    <p class="buy__price">Pre-assembled kit <span class="buy__price-note">Coming soon</span></p>
+                    <ul class="buy__features">
+                        <li>✓ Pre-flashed and tested</li>
+                        <li>✓ All parts included</li>
+                        <li>✓ Quick start guide</li>
+                        <li>✓ Enclosure (in development)</li>
+                    </ul>
+                    <p class="buy__note">Payment link will go live via Razorpay once KYC clears.</p>
+                    <div class="buy__actions">
+                        <a href="https://github.com/adithya-in/hack-calc" class="btn btn--primary" target="_blank" rel="noopener">Star on GitHub →</a>
+                        <a href="https://github.com/adithya-in/hack-calc" class="btn btn--ghost" target="_blank" rel="noopener">Build yourself →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">hack-calc</div>
+                    <p class="footer__tagline">A cyberpunk tribute to Casio FX-82MS</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#build">Build</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="https://github.com/adithya-in/hack-calc" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="https://github.com/adithya-in/hack-calc/blob/main/LICENSE" target="_blank" rel="noopener">License</a></li>
+                            <li><a href="https://github.com/adithya-in/hack-calc/blob/main/CREDITS.md" target="_blank" rel="noopener">Credits</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 hack-calc. Porsche photo by David Villarreal Fernández (CC BY-SA 2.0).</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
