@@ -3,266 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hack-calc — Casio FX-82MS style ESP32 display</title>
-    <meta name="description" content="A razor-thin tribute to the Casio FX-82MS, built around an ESP32 and a 2.25" 76×284 ST7789 bar TFT.">
+    <title>hack-calc — The calculator that loads your images and text</title>
+    <meta name="description" content="hack-calc looks like a classic scientific calculator. Load your images, text files and formulas onto its wide display, and switch back to the standard calculator anytime with one button.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="#home">hack-calc</a>
-            </div>
-            <button class="nav__toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav__menu">
-                <li class="nav__item"><a href="#product" class="nav__link">Product</a></li>
-                <li class="nav__item"><a href="#features" class="nav__link">Features</a></li>
-                <li class="nav__item"><a href="#gallery" class="nav__link">Gallery</a></li>
-                <li class="nav__item"><a href="#simulator" class="nav__link">Simulator</a></li>
-                <li class="nav__item"><a href="#build" class="nav__link">Build</a></li>
-                <li class="nav__item nav__item--cta"><a href="#buy" class="nav__link nav__link--cta">Buy</a></li>
-            </ul>
-        </nav>
+        <div class="container nav">
+            <a href="#top" class="brand">hack-calc</a>
+            <nav class="nav-links">
+                <a href="#how">How it works</a>
+                <a href="#specs">Specs</a>
+                <a href="/app/" class="is-sim">Try the simulator</a>
+                <a href="#buy" class="nav-cta">Buy</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero__content">
-                <p class="hero__eyebrow">76×284 DISPLAY</p>
-                <h1 class="hero__title">It looks like a<br><em>scientific calculator.</em></h1>
-                <p class="hero__subtitle">A razor-thin tribute to the Casio FX-82MS. Same keys, same screen. Load images and text files, display LaTeX, switch back to calculator with a button.</p>
-                <div class="hero__actions">
-                    <a href="#buy" class="btn btn--primary">Buy now →</a>
-                    <a href="/app/" class="btn btn--ghost">Try Simulator →</a>
+    <main id="top">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Handbuilt calculator, modern screen</p>
+                    <h1 class="hero-title">It looks like a scientific calculator.<br><span class="muted">It does much more.</span></h1>
+                    <p class="hero-sub">
+                        Load your images and text files onto the wide 76×284 display — formulas, notes,
+                        diagrams, even LaTeX-style math. When you're done, one button switches it
+                        straight back to the standard calculator layout.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#buy" class="btn btn-primary">Pre-order now</a>
+                        <a href="/app/" class="btn btn-ghost">Try it in the browser</a>
+                    </div>
+                    <p class="hero-meta">Free shipping in India · Secure payment · 1-year warranty</p>
                 </div>
+                <figure class="hero-visual">
+                    <img src="assets/hackcalc-hero.jpg" alt="hack-calc device" class="hero-img">
+                </figure>
             </div>
-            <div class="hero__visual">
-                <div class="calculator-hero">
-                    <img src="assets/hackcalc-hero.jpg" alt="hack-calc device" class="calculator-hero__img">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Product intro -->
-    <section id="product" class="product-intro">
-        <div class="container">
-            <div class="product-intro__grid">
-                <div class="product-intro__text">
-                    <p class="section__eyebrow">THE DEVICE</p>
-                    <h2 class="section__title">A modern <em>calculator.</em></h2>
-                    <p class="section__desc">Hand-assembled with care. Three modes cycle every 2 seconds, recreating the classic calculator experience with a modern twist.</p>
-                </div>
-                <div class="product-intro__features">
-                    <div class="feature-block">
-                        <span class="feature-block__num">I</span>
-                        <h3>On the back</h3>
-                        <p>A 2.25" 76×284 display with custom GRAM offsets for perfect alignment.</p>
-                    </div>
-                    <div class="feature-block">
-                        <span class="feature-block__num">II</span>
-                        <h3>On the outside</h3>
-                        <p>Classic calculator form factor. Dark LCD with authentic dot-matrix rendering.</p>
-                    </div>
-                    <div class="feature-block">
-                        <span class="feature-block__num">III</span>
-                        <h3>On the inside</h3>
-                        <p>Three modes: Casio LCD, Porsche banner, and pocket cheat sheet. Per-state backlight control.</p>
-                    </div>
+        <!-- How it works -->
+        <section id="how" class="section">
+            <div class="container">
+                <p class="eyebrow">How it works</p>
+                <h2 class="section-title">Three things it does, simply.</h2>
+                <div class="grid-3">
+                    <article class="card">
+                        <span class="num">01</span>
+                        <h3>Load your content</h3>
+                        <p>Send an image or a <span class="mono">.txt</span> file to the device. Notes, formulas, answer keys, photos of your classwork — anything.</p>
+                    </article>
+                    <article class="card">
+                        <span class="num">02</span>
+                        <h3>Read and study</h3>
+                        <p>Your content renders on the wide display, formatted for comfortable reading — including math written in LaTeX.</p>
+                    </article>
+                    <article class="card">
+                        <span class="num">03</span>
+                        <h3>Switch back</h3>
+                        <p>One button press and it's a normal calculator again: same keypad feel, same dot-matrix screen, instant.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Modes showcase -->
-    <section id="gallery" class="modes">
-        <div class="container">
-            <div class="modes__header">
-                <p class="section__eyebrow">MODES</p>
-                <h2 class="section__title">Load images, text & <em>LaTeX.</em></h2>
-                <p class="section__desc">Upload images or text files. Content converts to display format. Switch back to calculator layout with a single button press.</p>
-            </div>
-            <div class="modes__slider">
-                <div class="mode-card mode-card--active">
-                    <div class="mode-card__display mode-card__display--lcd">
-                        <div class="lcd-row">DEG M STO</div>
-                        <div class="lcd-row">sin(30)+12</div>
-                        <div class="lcd-row lcd-row--right">12.5</div>
-                    </div>
-                    <div class="mode-card__info">
-                        <span class="mode-card__num">01</span>
-                        <h3>Calculator Layout</h3>
-                        <p>Classic Casio FX-82MS display with dot-matrix rendering.</p>
-                    </div>
-                </div>
-                <div class="mode-card">
-                    <div class="mode-card__display mode-card__display--custom">
-                        <div class="custom-display">
-                            <div style="color: #bccfc4; font-family: 'JetBrains Mono', monospace; font-size: 9px; text-align: center;">
-                                <div>IMAGE / TEXT</div>
-                                <div style="margin-top: 4px;">LOAD & DISPLAY</div>
-                                <div style="margin-top: 4px; opacity: 0.7;">LATEX RENDER</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mode-card__info">
-                        <span class="mode-card__num">02</span>
-                        <h3>Custom Content</h3>
-                        <p>Load images or .txt files, display LaTeX equations and formatted text.</p>
-                    </div>
-                </div>
-                <div class="mode-card">
-                    <div class="mode-card__display mode-card__display--cheat">
-                        <div>sin²+cos²=1   tan=sin/cos</div>
-                        <div>sin(A+B)=sinAcosB+cosAsinB</div>
-                        <div>cos(A+B)=cosAcosB-sinAsinB</div>
-                        <div>a/sinA=b/sinB=c/sinC</div>
-                    </div>
-                    <div class="mode-card__info">
-                        <span class="mode-card__num">03</span>
-                        <h3>Cheat Sheet</h3>
-                        <p>Pocket formulas for trigonometry and algebra.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="features__header">
-                <p class="section__eyebrow">FEATURES</p>
-                <h2 class="section__title">Built with <em>intent.</em></h2>
-            </div>
-            <div class="features__grid">
-                <div class="feature-item">
-                    <h3>Custom ST7789 Offsets</h3>
-                    <p>Patched rotation for 76×284 GRAM window. Every pixel lands exactly where it should.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Active-Low Backlight</h3>
-                    <p>PWM dimming with inverted duty cycle. Brightness tuned per mode for optimal readability.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Hand-Tuned Palette</h3>
-                    <p>Background #152228, text #bccfc4, subtle grid. Nails that authentic LCD glow.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>2-Second Cycle</h3>
-                    <p>Clean state machine. Casio → Porsche → Cheat sheet, repeat.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Raw-GRAM Diagnostics</h3>
-                    <p>Stripe test bypasses offsets for easy hardware debugging.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Fully Open Source</h3>
-                    <p>MIT licensed. Wiring, patch, image pipeline, and docs all included.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Build section -->
-    <section id="build" class="build">
-        <div class="container">
-            <div class="build__grid">
-                <div class="build__content">
-                    <p class="section__eyebrow">BUILD IT YOURSELF</p>
-                    <h2 class="section__title">DIY or <em>pre-assembled.</em></h2>
-                    <p class="section__desc">Source the parts, flash the firmware, and build your own. Or get a tested kit when available.</p>
-                    <div class="build__actions">
-                        <a href="#buy" class="btn btn--primary">Learn more →</a>
-                        <a href="#buy" class="btn btn--ghost">Get kit</a>
-                    </div>
-                </div>
-                <div class="build__parts">
-                    <div class="parts-list">
-                        <div class="parts-list__item">
-                            <span class="parts-list__label">Display</span>
-                            <span class="parts-list__value">76×284</span>
-                        </div>
-                        <div class="parts-list__item">
-                            <span class="parts-list__label">Interface</span>
-                            <span class="parts-list__value">SPI</span>
-                        </div>
-                        <div class="parts-list__item">
-                            <span class="parts-list__label">Backlight</span>
-                            <span class="parts-list__value">PWM</span>
-                        </div>
-                        <div class="parts-list__item">
-                            <span class="parts-list__label">Storage</span>
-                            <span class="parts-list__value">Load images & text</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Buy -->
-    <section id="buy" class="buy">
-        <div class="container">
-            <div class="buy__card">
-                <div class="buy__content">
-                    <p class="section__eyebrow">PURCHASE</p>
-                    <h2 class="section__title">Get hack-calc</h2>
-                    <p class="buy__price">Pre-assembled kit <span class="buy__price-note">Coming soon</span></p>
-                    <ul class="buy__features">
-                        <li>✓ Pre-flashed and tested</li>
-                        <li>✓ All parts included</li>
-                        <li>✓ Quick start guide</li>
-                        <li>✓ Enclosure (in development)</li>
+        <!-- What's inside -->
+        <section class="section section-alt">
+            <div class="container split">
+                <div>
+                    <p class="eyebrow">What's inside</p>
+                    <h2 class="section-title">Everything a student actually needs.</h2>
+                    <ul class="checklist">
+                        <li>Both standard and scientific modes</li>
+                        <li>Image viewer and text/notes reader</li>
+                        <li>LaTeX and formula rendering on the display</li>
+                        <li>Calculator layout toggle with a single button</li>
+                        <li>Adjustable screen brightness</li>
+                        <li>Rechargeable, all-day battery</li>
+                        <li>Free firmware updates</li>
                     </ul>
-                    <p class="buy__note">Pre-order available now</p>
-                    <div class="buy__actions" style="flex-direction: column; align-items: center;">
-                        <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Tt31hGvZbFClhc" async> </script> </form>
-                    </div>
                 </div>
+                <figure class="panel-figure">
+                    <div class="lcd-mock">
+                        <div class="lcd-annunciators">DEG&nbsp;&nbsp;M&nbsp;&nbsp;STO</div>
+                        <div class="lcd-expr">sin(30)+12</div>
+                        <div class="lcd-result">12.5</div>
+                    </div>
+                    <figcaption class="panel-caption">The familiar calculator display — always one press away.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Specs -->
+        <section id="specs" class="section">
+            <div class="container">
+                <p class="eyebrow">Specs</p>
+                <h2 class="section-title">The details.</h2>
+                <div class="specs-table">
+                    <div class="spec-row"><span>Display</span><span>Wide high-resolution bar display, 76 × 284 px</span></div>
+                    <div class="spec-row"><span>Content types</span><span>Images (JPG / PNG) and text files</span></div>
+                    <div class="spec-row"><span>Math rendering</span><span>LaTeX and formula display</span></div>
+                    <div class="spec-row"><span>Calculator</span><span>Full scientific layout with dot-matrix rendering</span></div>
+                    <div class="spec-row"><span>Brightness</span><span>Software-controlled, per-screen</span></div>
+                    <div class="spec-row"><span>Build</span><span>Hand-assembled, tested unit</span></div>
+                    <div class="spec-row"><span>In the box</span><li>Device, USB cable, quick-start card</li></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buy -->
+        <section id="buy" class="section buy">
+            <div class="container buy-card">
+                <p class="eyebrow">Pre-order</p>
+                <h2 class="section-title">hack-calc</h2>
+                <p class="buy-price">₹2,499 <span class="price-note">introductory price</span></p>
+                <ul class="buy-includes">
+                    <li>Pre-assembled and fully tested device</li>
+                    <li>Images, text and formula loader included</li>
+                    <li>Calculator toggle, brightness control</li>
+                    <li>USB cable and quick-start guide</li>
+                </ul>
+                <div class="buy-button">
+                    <form>
+                      <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                        data-payment_button_id="pl_Tt31hGvZbFClhc"
+                        async>
+                      </script>
+                    </form>
+                </div>
+                <p class="buy-note">Secure checkout · Ships across India · Support included</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand">hack-calc</div>
+                <p class="footer-tag">The calculator that loads your images and text.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#how">How it works</a>
+                <a href="#specs">Specs</a>
+                <a href="/app/">Simulator</a>
+                <a href="#buy">Buy</a>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__brand">
-                    <div class="footer__logo">hack-calc</div>
-                    <p class="footer__tagline">A cyberpunk tribute to Casio FX-82MS</p>
-                </div>
-                <div class="footer__links">
-                    <div class="footer__col">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#gallery">Gallery</a></li>
-                            <li><a href="#build">Build</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__col">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="https://github.com/adithya-in/hack-calc" target="_blank" rel="noopener">GitHub</a></li>
-                            <li><a href="https://github.com/adithya-in/hack-calc/blob/main/LICENSE" target="_blank" rel="noopener">License</a></li>
-                            <li><a href="https://github.com/adithya-in/hack-calc/blob/main/CREDITS.md" target="_blank" rel="noopener">Credits</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>© 2026 hack-calc. Porsche photo by David Villarreal Fernández (CC BY-SA 2.0).</p>
-            </div>
+        <div class="container footer-bottom">
+            <p>© 2026 hack-calc. All product names are trademarks of their respective owners.</p>
         </div>
     </footer>
 
