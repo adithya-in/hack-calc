@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hack-calc Display Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="logo">hack-calc</div>
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/vovo-site/">Product</a>
+                    <a href="https://github.com/adithya-in/hack-calc" target="_blank" rel="noopener">GitHub</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__header">
+                    <h1 class="hero__title">Display Simulator</h1>
+                    <p class="hero__desc">Upload images or text files. Convert to LaTeX/format for the 76×284 ST7789 display. Switch back to calculator view with the button.</p>
+                </div>
+
+                <div class="simulator">
+                    <div class="simulator__controls">
+                        <div class="control-group">
+                            <label class="control-label">Input Type</label>
+                            <div class="control-tabs">
+                                <button class="tab-btn active" data-tab="image">Image</button>
+                                <button class="tab-btn" data-tab="text">Text / LaTeX</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-content active" id="tab-image">
+                            <div class="upload-zone" id="imageUpload">
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                                <div class="upload-zone__content">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <polyline points="21 15 16 10 5 21"></polyline>
+                                    </svg>
+                                    <p>Drop image or click to upload</p>
+                                    <span>PNG, JPG, WebP</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" id="processImage">Process Image</button>
+                        </div>
+
+                        <div class="tab-content" id="tab-text">
+                            <div class="control-group">
+                                <label class="control-label" for="textInput">Text or LaTeX</label>
+                                <textarea id="textInput" class="textarea" placeholder="Enter text, markdown, or LaTeX like $x^2 + y^2 = r^2$..."></textarea>
+                            </div>
+                            <button class="btn btn--primary" id="processText">Process Text</button>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Display Mode</label>
+                            <div class="mode-toggle">
+                                <button class="mode-btn active" data-mode="custom">Custom Content</button>
+                                <button class="mode-btn" data-mode="calculator">Calculator Layout</button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--ghost" id="captureBtn">Capture Screenshot</button>
+                    </div>
+
+                    <div class="simulator__display">
+                        <div class="display-container">
+                            <div class="display-header">
+                                <span>76 × 284</span>
+                                <span>ST7789</span>
+                            </div>
+                            <div class="lcd-display" id="lcdDisplay">
+                                <canvas id="displayCanvas" width="284" height="76"></canvas>
+                            </div>
+                            <div class="display-footer">
+                                <button class="switch-btn" id="switchBtn">Switch to Calculator</button>
+                            </div>
+                        </div>
+                        <div class="display-info">
+                            <div class="info-row">
+                                <span>Resolution</span>
+                                <span>284 × 76 px</span>
+                            </div>
+                            <div class="info-row">
+                                <span>Mode</span>
+                                <span id="currentMode">Custom Content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="output-section">
+            <div class="container">
+                <h2 class="section-title">LaTeX Output</h2>
+                <pre class="latex-output" id="latexOutput">// Process content to see LaTeX conversion</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">hack-calc</div>
+                <div class="footer__links">
+                    <a href="https://github.com/adithya-in/hack-calc">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
