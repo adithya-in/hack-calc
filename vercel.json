@@ -1,6 +1,3 @@
 {
-  "version": 2,
-  "rewrites": [
-    {"source": "/thank-you.html", "destination": "/index-thank-you.html"}
-  ]
+  "cleanUrls": true
 }
