@@ -1,9 +1,1 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "vovo-site/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/vovo-site/$1" }
-  ]
-}
+{"version": 2, "builds": [{"src": "api/**/*.js", "use": "@vercel/node"}, {"src": "vovo-site/**", "use": "@vercel/static"}], "routes": [{"src": "/thank-you.html", "dest": "/api/thank-you"}, {"src": "/(.*)", "dest": "/vovo-site/$1"}]}
