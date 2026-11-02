@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /invoice-sample.html
+Disallow: /thank-you.html
+
+Sitemap: https://www.toppercalc.in/sitemap.xml

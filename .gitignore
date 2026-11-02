@@ -7,3 +7,14 @@ build/
 *.dSYM/
 __pycache__/
 *.pyc
+.vercel
+node_modules/
+qa-screenshots/
+*.test.ts
+playwright.config.ts
+app.bak/
+/*.png
+/v[0-9].js
+crawl.js
+shots2.js
+tools-test.js

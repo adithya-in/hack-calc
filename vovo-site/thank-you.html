@@ -6,23 +6,23 @@
     <title>Thank you - topper.calc</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .thankyou { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+        .thankyou { min-height: 62vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 64px 24px; }
         .thankyou-inner { max-width: 560px; }
-        .thankyou h1 { font-size: 42px; margin-bottom: 16px; }
-        .thankyou p { color: var(--muted); font-size: 18px; line-height: 1.6; }
-        .thankyou .btn { margin-top: 32px; display: inline-block; }
+        .thankyou h1 { font-size: clamp(28px, 5vw, 40px); margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.2; }
+        .thankyou p { color: var(--muted); font-size: 16px; line-height: 1.7; margin-bottom: 10px; }
+        .thankyou .btn { margin-top: 24px; }
+        @media (max-width: 640px) { .thankyou { padding: 40px 20px; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="container header-inner">
-            <a class="brand" href="index.html">topper.calc</a>
-            <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="index.html#how">How it works</a>
-                <a href="app/index.html">Web App</a>
-                <a href="index.html#specs">Details</a>
-                <a class="btn btn-primary" href="product/index.html">Buy</a>
+        <div class="container nav">
+            <a href="index.html" class="brand">topper.calc</a>
+            <nav class="nav-links">
+                <a href="index.html#how" class="nav-hide-sm">How it works</a>
+                <a href="education/">Education</a>
+                <a href="app/">Web app</a>
+                <a href="product/" class="nav-cta">Buy</a>
             </nav>
         </div>
     </header>
@@ -30,9 +30,9 @@
     <main>
         <section class="thankyou">
             <div class="thankyou-inner">
-                <h1>Thanks for your order!</h1>
-                <p>We received your payment. You'll get a confirmation email from Razorpay with your order details.</p>
-                <p>We'll email you shipping updates as soon as your topper.calc ships.</p>
+                <h1>Thank you for your order</h1>
+                <p>We've received your payment. You'll get a confirmation email from Razorpay with your order details.</p>
+                <p>Production time is about 2 weeks. We'll email you shipping updates once it ships.</p>
                 <a class="btn btn-primary" href="index.html">Back to home</a>
             </div>
         </section>
@@ -46,10 +46,26 @@
             </div>
             <div class="footer-links">
                 <a href="index.html#how">How it works</a>
-                <a href="index.html#material">Web App</a>
-                <a href="index.html#specs">Details</a>
-                <a href="index.html">Home</a>
+                <a href="tools/">Study tools</a>
+                <a href="app/">Web app</a>
+                <a href="product/">Product</a>
             </div>
+        </div>
+        <div class="footer-legal container">
+            <nav class="footer-policy" aria-label="Policies">
+                <a href="/about/">About</a>
+                <a href="/education/">Education</a>
+                <a href="/contact/">Contact</a>
+                <a href="/terms/">Terms</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/refunds/">Refunds</a>
+                <a href="/shipping/">Shipping</a>
+            </nav>
+            <p class="footer-contact">always.toppercalc@gmail.com &middot; Kerala, India</p>
+        </div>
+        <div class="disclaimer container">
+            <p>The use of this device in examination settings is strictly discouraged.</p>
+            <p>We assume no liability for any academic misconduct or malpractice resulting from the use of this device.</p>
         </div>
         <div class="container footer-bottom">
             <p>© 2026 topper.calc. All product names are trademarks of their respective owners.</p>

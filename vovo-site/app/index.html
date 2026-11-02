@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>topper.calc - WiFi Updater</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="logo">topper.calc</a>
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/education/">Education</a>
+                    <a href="/tools/">Study tools</a>
+                    <a href="/product/">Buy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__header">
+                    <h1 class="hero__title">WiFi File Updater</h1>
+                    <p class="hero__desc">Connect to your topper.calc Device over WiFi and upload images, notes, or LaTeX to update the display remotely.</p>
+                </div>
+
+                <div class="top-row">
+                    <div class="panel">
+                        <div class="panel__header">
+                            <h2 class="panel__title">Connect to Device</h2>
+                        </div>
+                        <div class="panel__body">
+                            <div class="field">
+                                <label class="label">Device IP Address</label>
+                                <input type="text" id="ip" class="input" value="192.168.1.100" placeholder="e.g. 192.168.1.105">
+                            </div>
+                            <button class="btn btn-primary" id="connectBtn">Connect</button>
+                            <div class="status" id="connStatus">Not connected</div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel__header">
+                            <h2 class="panel__title">Upload Content</h2>
+                        </div>
+                        <div class="panel__body">
+                            <div class="tabs">
+                                <button class="tab active" data-tab="image">Image</button>
+                                <button class="tab" data-tab="text">Text / LaTeX</button>
+                            </div>
+
+                            <div class="tab-pane active" id="pane-image">
+                                <div class="upload-row">
+                                    <div class="dropzone dropzone--inline" id="dropzone">
+                                        <input type="file" id="fileInput" accept="image/*" hidden>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                        <div>
+                                            <p class="dropzone__text">Upload image</p>
+                                            <p class="dropzone__sub">PNG, JPG, WebP</p>
+                                        </div>
+                                    </div>
+                                    <div id="imgPreviewWrap" class="preview preview--inline" style="display:none">
+                                        <img id="imgPreview" src="" alt="preview">
+                                    </div>
+                                </div>
+                                <button class="btn btn-ghost" id="toTextBtn">Convert Image to Text/LaTeX (OCR)</button>
+                            </div>
+
+                            <div class="tab-pane" id="pane-text">
+                                <textarea id="textArea" class="textarea" placeholder="Enter notes, formulas, or LaTeX...\n\nExample:\n$E = mc^2$\n$x^2 + y^2 = r^2$"></textarea>
+                            </div>
+
+                            <button class="btn btn-primary" id="uploadBtn" disabled>Upload to Device</button>
+                            <div class="status" id="upStatus"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel__header">
+                            <h2 class="panel__title">Device Preview</h2>
+                            <span class="badge">284 × 76</span>
+                        </div>
+                        <div class="panel__body panel__body-center">
+                            <div class="display-bezel display-bezel--small">
+                                <div class="display-screen">
+                                    <canvas id="displayCanvas" width="284" height="76"></canvas>
+                                </div>
+                            </div>
+                            <div class="display-meta">
+                                <span>ST7789 TFT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="disclaimer container">
+            <p>The use of this device in examination settings is strictly discouraged.</p>
+            <p>We assume no liability for any academic misconduct or malpractice resulting from the use of this device.</p>
+        </div>
+        <div class="container footer__inner">
+            <div class="footer__brand">© 2026 topper.calc</div>
+            <div class="footer__links">
+                <a href="/">Home</a>
+                <a href="/product/">Buy</a>
+            </div>
+        </div>
+        <div class="footer-legal container">
+            <nav class="footer-policy" aria-label="Policies">
+                <a href="/about/">About</a>
+                <a href="/education/">Education</a>
+                <a href="/contact/">Contact</a>
+                <a href="/terms/">Terms</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/refunds/">Refunds</a>
+                <a href="/shipping/">Shipping</a>
+            </nav>
+            <p class="footer-contact">always.toppercalc@gmail.com &middot; Kerala, India</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

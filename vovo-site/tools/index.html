@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free study tools - topper.calc</title>
+    <meta name="description" content="Free browser based study tools for students: scientific calculator, unit converter, quadratic solver, percentage calculator and a searchable formula reference. No sign-up.">
+    <link rel="canonical" href="https://www.toppercalc.in/tools/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/tools/tools.css">
+</head>
+<body id="top">
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="brand">topper.calc</a>
+            <nav class="nav-links">
+                <a href="/" class="nav-hide-sm">Home</a>
+                <a href="/education/">Education</a>
+                <a href="/app/">Web app</a>
+                <a href="/product/" class="nav-cta">Buy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tools-page container">
+        <div class="tools-intro">
+            <h1>Free study tools.</h1>
+            <p>
+                A small set of tools we built for students who use topper.calc. They run entirely in your
+                browser, need no account, and send nothing to a server. Use them for homework, revision and
+                checking your work.
+            </p>
+        </div>
+
+        <div class="tools-grid">
+            <section class="tool tool--wide" aria-labelledby="calc-title">
+                <div class="formulas-head">
+                    <h2 id="calc-title">Scientific calculator</h2>
+                    <select id="angleMode" class="formulas-search" style="min-width: 96px;" aria-label="Angle mode">
+                        <option value="deg">DEG</option>
+                        <option value="rad">RAD</option>
+                    </select>
+                </div>
+                <p class="tool-hint">Type an expression or tap the keys. Supports sin, cos, tan, asin, acos, atan, sqrt, log, ln, abs, exp, pi, e, powers and percent.</p>
+                <div class="calc-screen">
+                    <input id="calcExpr" class="calc-expr" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Expression" placeholder="e.g. sin(30) + sqrt(144)">
+                    <div id="calcResult" class="calc-result" aria-live="polite">0</div>
+                </div>
+                <div class="calc-pad">
+                    <button type="button" data-ins="sin(">sin</button>
+                    <button type="button" data-ins="cos(">cos</button>
+                    <button type="button" data-ins="tan(">tan</button>
+                    <button type="button" data-ins="(">(</button>
+                    <button type="button" data-ins=")">)</button>
+                    <button type="button" data-act="clear">C</button>
+
+                    <button type="button" data-ins="sqrt(">√</button>
+                    <button type="button" data-ins="log(">log</button>
+                    <button type="button" data-ins="ln(">ln</button>
+                    <button type="button" data-ins="pi">π</button>
+                    <button type="button" data-ins="e">e</button>
+                    <button type="button" data-act="back">⌫</button>
+
+                    <button type="button" data-ins="7">7</button>
+                    <button type="button" data-ins="8">8</button>
+                    <button type="button" data-ins="9">9</button>
+                    <button type="button" data-ins="/">/</button>
+                    <button type="button" data-ins="^">^</button>
+                    <button type="button" data-ins="%">%</button>
+
+                    <button type="button" data-ins="4">4</button>
+                    <button type="button" data-ins="5">5</button>
+                    <button type="button" data-ins="6">6</button>
+                    <button type="button" data-ins="*">*</button>
+                    <button type="button" data-ins="-">−</button>
+                    <button type="button" data-ins="+">+</button>
+
+                    <button type="button" data-ins="1">1</button>
+                    <button type="button" data-ins="2">2</button>
+                    <button type="button" data-ins="3">3</button>
+                    <button type="button" data-ins=".">.</button>
+                    <button type="button" data-ins="0">0</button>
+                    <button type="button" data-act="eq">=</button>
+                </div>
+            </section>
+
+            <section class="tool" aria-labelledby="conv-title">
+                <h2 id="conv-title">Unit converter</h2>
+                <p class="tool-hint">Length, mass and temperature.</p>
+                <div class="field">
+                    <label for="convCat">Category</label>
+                    <select id="convCat">
+                        <option value="length">Length</option>
+                        <option value="mass">Mass</option>
+                        <option value="temp">Temperature</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="convValue">Value</label>
+                    <input id="convValue" class="mono" type="number" inputmode="decimal" value="1">
+                </div>
+                <div class="tool-row">
+                    <div class="field">
+                        <label for="convFrom">From</label>
+                        <select id="convFrom"></select>
+                    </div>
+                    <div class="field">
+                        <label for="convTo">To</label>
+                        <select id="convTo"></select>
+                    </div>
+                </div>
+                <button type="button" id="convBtn" class="tool-btn">Convert</button>
+                <div id="convOut" class="tool-out" aria-live="polite">—</div>
+            </section>
+
+            <section class="tool" aria-labelledby="quad-title">
+                <h2 id="quad-title">Quadratic solver</h2>
+                <p class="tool-hint">Solve ax² + bx + c = 0.</p>
+                <div class="tool-row">
+                    <div class="field">
+                        <label for="qa">a</label>
+                        <input id="qa" class="mono" type="number" inputmode="decimal" value="1">
+                    </div>
+                    <div class="field">
+                        <label for="qb">b</label>
+                        <input id="qb" class="mono" type="number" inputmode="decimal" value="0">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="qc">c</label>
+                    <input id="qc" class="mono" type="number" inputmode="decimal" value="0">
+                </div>
+                <button type="button" id="quadBtn" class="tool-btn">Solve</button>
+                <div id="quadOut" class="tool-out" aria-live="polite">—</div>
+            </section>
+
+            <section class="tool" aria-labelledby="pct-title">
+                <h2 id="pct-title">Percentage calculator</h2>
+                <p class="tool-hint">Three common percentage questions.</p>
+                <div class="field">
+                    <label for="pctMode">Question</label>
+                    <select id="pctMode">
+                        <option value="of">What is X% of Y?</option>
+                        <option value="is">X is what percent of Y?</option>
+                        <option value="change">Percent change from X to Y</option>
+                    </select>
+                </div>
+                <div class="tool-row">
+                    <div class="field">
+                        <label for="px">X</label>
+                        <input id="px" class="mono" type="number" inputmode="decimal" value="25">
+                    </div>
+                    <div class="field">
+                        <label for="py">Y</label>
+                        <input id="py" class="mono" type="number" inputmode="decimal" value="200">
+                    </div>
+                </div>
+                <button type="button" id="pctBtn" class="tool-btn">Calculate</button>
+                <div id="pctOut" class="tool-out" aria-live="polite">—</div>
+            </section>
+        </div>
+
+        <section class="formulas" aria-labelledby="formulas-title">
+            <div class="formulas-head">
+                <h2 id="formulas-title">Formula reference</h2>
+                <input id="formulaSearch" class="formulas-search" type="search" placeholder="Search formulas, e.g. area, ohm, quadratic" aria-label="Search formulas">
+            </div>
+            <ul id="formulaList" class="formula-list"></ul>
+            <p id="formulaEmpty" class="formula-empty" hidden>No formula matches that search.</p>
+        </section>
+
+        <aside class="tools-cta">
+            <div>
+                <h2>Study offline on topper.calc</h2>
+                <p>Keep your formula sheet, diagrams and notes on a calculator shaped device with a wide screen. No internet needed once it is loaded.</p>
+            </div>
+            <div class="tools-cta-actions">
+                <a href="/education/" class="btn btn-ghost">How students use it</a>
+                <a href="/product/" class="btn btn-primary">View the device</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <div class="brand">topper.calc</div>
+                <p class="footer-tag">Your notes, hidden in a calculator.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/#how">How it works</a>
+                <a href="/tools/">Study tools</a>
+                <a href="/app/">Web app</a>
+                <a href="/product/">Product</a>
+            </div>
+        </div>
+        <div class="footer-legal container">
+            <nav class="footer-policy" aria-label="Policies">
+                <a href="/about/">About</a>
+                <a href="/education/">Education</a>
+                <a href="/contact/">Contact</a>
+                <a href="/terms/">Terms</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/refunds/">Refunds</a>
+                <a href="/shipping/">Shipping</a>
+            </nav>
+            <p class="footer-contact">always.toppercalc@gmail.com &middot; Kerala, India</p>
+        </div>
+        <div class="disclaimer container">
+            <p>The use of this device in examination settings is strictly discouraged.</p>
+            <p>We assume no liability for any academic misconduct or malpractice resulting from the use of this device.</p>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 topper.calc. All product names are trademarks of their respective owners.</p>
+        </div>
+    </footer>
+
+    <script src="/tools/tools.js"></script>
+</body>
+</html>

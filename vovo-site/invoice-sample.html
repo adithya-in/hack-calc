@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sample invoice - topper.calc</title>
+<style>
+    @page { size: A4; margin: 18mm; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; color: #111; margin: 0; padding: 24px; background: #fff; }
+    .sheet { max-width: 720px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #111; padding-bottom: 16px; }
+    h1 { font-size: 20px; margin: 0 0 4px; letter-spacing: -0.02em; }
+    .muted { color: #555; font-size: 12px; line-height: 1.6; }
+    .right { text-align: right; }
+    .tag { display: inline-block; margin-top: 8px; padding: 3px 8px; border: 1px solid #111; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    section { display: flex; gap: 32px; margin-top: 28px; }
+    section > div { flex: 1; }
+    h2 { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #555; margin: 0 0 6px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 28px; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #ddd; font-size: 13px; }
+    th { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #555; border-bottom: 1px solid #111; }
+    .num { text-align: right; white-space: nowrap; }
+    .totals { margin-left: auto; width: 260px; margin-top: 12px; }
+    .totals div { display: flex; justify-content: space-between; padding: 6px 8px; font-size: 13px; }
+    .totals .grand { border-top: 1px solid #111; margin-top: 6px; padding-top: 10px; font-weight: 700; font-size: 15px; }
+    footer { margin-top: 40px; border-top: 1px solid #ddd; padding-top: 14px; font-size: 11px; color: #555; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="sheet">
+    <header>
+        <div>
+            <h1>Nuke Labs</h1>
+            <div class="muted">Kerala, India<br>always.toppercalc@gmail.com</div>
+        </div>
+        <div class="right">
+            <h1>Tax invoice</h1>
+            <div class="muted">Invoice no. TC-000001<br>Date: 1 November 2026</div>
+            <div class="tag">Sample</div>
+        </div>
+    </header>
+
+    <section>
+        <div>
+            <h2>Billed to</h2>
+            <div class="muted">Customer name<br>Customer address line<br>City, State - PIN<br>Phone &middot; email</div>
+        </div>
+        <div>
+            <h2>Shipped to</h2>
+            <div class="muted">Customer name<br>Customer address line<br>City, State - PIN<br>Phone</div>
+        </div>
+    </section>
+
+    <table>
+        <thead>
+            <tr><th>Item</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>topper.calc device (scientific calculator with wide display)</td>
+                <td class="num">1</td>
+                <td class="num">&#8377;6,499.00</td>
+                <td class="num">&#8377;6,499.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="totals">
+        <div><span>Subtotal</span><span>&#8377;6,499.00</span></div>
+        <div><span>Shipping</span><span>Included</span></div>
+        <div><span>Payment</span><span>Razorpay</span></div>
+        <div class="grand"><span>Total paid</span><span>&#8377;6,499.00</span></div>
+    </div>
+
+    <footer>
+        This is a sample invoice generated for payment gateway verification. Prices are in Indian Rupees.
+        Payment reference: pay_SAMPLE0000000000. For questions write to always.toppercalc@gmail.com.
+    </footer>
+</div>
+</body>
+</html>
